@@ -6,4 +6,5 @@ Aufgabe bis nächste Woche:
 - Was sind wichtige Variablen/Metrics, die aufgenommen werden müssen?
 
 3D Modelling - mögliche Programme:
-- [ProBuilder Manual](https://docs.unity3d.com/Packages/com.unity.probuilder@4.0/manual/index.html)
+- [ProBuilder](https://docs.unity3d.com/Packages/com.unity.probuilder@4.0/manual/index.html)
+- [Blender](https://www.blender.org/)
