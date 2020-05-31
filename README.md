@@ -23,13 +23,13 @@ Metrics to record:
  
  |Stimulus|Gefunden|Link (wenn möglich)|
  |--------|--------|-------------------|
- | Spinne |        |                   |
+ | Spinne | :white_check_mark: |   https://assetstore.unity.com/packages/3d/characters/animals/animated-spiders-pack-9864  |
  | Schlange |      |                   |
- | Wespe |         |                   |
- | Katze |         |                   |
- | Hund |          |                   |
- | Schmetterling |  |                  |
- | Vogel |         |                   |
- | Blume |         |                   |
+ | Wespe | :interrobang:  |    https://assetstore.unity.com/packages/3d/characters/animals/fantasy-bee-135487 (Biene) |
+ | Katze |  :white_check_mark:  |    https://assetstore.unity.com/packages/3d/characters/animals/free-chibi-cat-165490    |
+ | Hund |  :interrobang:   |    https://assetstore.unity.com/packages/3d/characters/animals/5-animated-voxel-animals-145754     |
+ | Schmetterling | :white_check_mark: |  https://assetstore.unity.com/packages/3d/characters/animals/butterfly-animated-58355  <br />                                            https://assetstore.unity.com/packages/3d/characters/animals/butterfly-with-animations-20985 |
+ | Vogel | :white_check_mark:  | https://assetstore.unity.com/packages/3d/characters/animals/living-birds-15649       |
+ | Blume | :white_check_mark: |  https://assetstore.unity.com/packages/3d/vegetation/plants/lowpoly-flowers-47083  |
  | Pilz |          |                   |
- | Baum |          |                   |
+ | Baum |  :white_check_mark:   |    https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-9-rainbow-tree-54622 <br />                                   https://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208 |
