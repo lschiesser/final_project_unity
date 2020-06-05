@@ -60,3 +60,7 @@ crashlytics-build.properties
 
 # Exclude temporary files by Rider
 /.idea
+
+# Exclude .zip files and folder for object files
+*.zip
+/ext-objects
