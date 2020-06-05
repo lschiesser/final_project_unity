@@ -63,4 +63,4 @@ crashlytics-build.properties
 
 # Exclude .zip files and folder for object files
 *.zip
-/ext-objects
+/Assets/ext-objects
