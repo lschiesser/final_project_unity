@@ -27,7 +27,7 @@ Metrics to record:
  | Schlange |      |                   |         |
  | Wespe | :white_check_mark:  |    https://assetstore.unity.com/packages/3d/characters/animals/fantasy-bee-135487 (Biene) |      |
  | Katze |  :white_check_mark:  |    https://assetstore.unity.com/packages/3d/characters/animals/free-chibi-cat-165490    |       |
- | Hund |  :interrobang:   |    https://free3d.com/3d-model/canaan-dog-v1--72376.html     |           |
+ | Hund |  :white_check_mark:   |    https://free3d.com/3d-model/canaan-dog-v1--72376.html     |  :white_check_mark:  |
  | Schmetterling | :white_check_mark: |  https://assetstore.unity.com/packages/3d/characters/animals/butterfly-animated-58355  <br />                                            https://assetstore.unity.com/packages/3d/characters/animals/butterfly-with-animations-20985 |  |
  | Vogel | :white_check_mark:  | https://assetstore.unity.com/packages/3d/characters/animals/living-birds-15649       |       |
  | Blume | :white_check_mark: |  https://assetstore.unity.com/packages/3d/vegetation/plants/lowpoly-flowers-47083  |          |
