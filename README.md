@@ -33,3 +33,11 @@ Metrics to record:
  | Blume | :white_check_mark: |  https://assetstore.unity.com/packages/3d/vegetation/plants/lowpoly-flowers-47083  |          |
  | Pilz |   :white_check_mark:  |     https://assetstore.unity.com/packages/3d/environments/toadstools-pack-photoscanned-70294   |   |
  | Baum |  :white_check_mark:   |    https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-9-rainbow-tree-54622 <br />                                   https://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208 |   |
+ 
+### How to import .obj-Files into Unity
+Before downloading anything, create folder "ext-objects" in Assets folder (this folder is not tracked by Git)
+1. Download from source (from free3d usually as .zip-File) to ext-objects folder
+2. Unzip folder
+3. Drag .obj-file into Scene, it is loaded into the scene as a prefab
+4. Sometimes you have to unpack the prefab, so you only have the object that you want (you don't necessarily have to do this, it depends on how many objects there are in the parent)
+5. Drag the object into the Prefabs folder, so we can use it later.
