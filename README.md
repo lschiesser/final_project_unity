@@ -24,9 +24,9 @@ Metrics to record:
  |Stimulus|Gefunden|Link (wenn möglich)| Importiert |
  |--------|--------|-------------------|------------|
  | Spinne | :white_check_mark: |   https://assetstore.unity.com/packages/3d/characters/animals/animated-spiders-pack-9864  |     |
- | Schlange | :white_check_mark: | https://free3d.com/de/3d-model/rattlesnake-v04--784635.html   |         |
+ | Schlange | :white_check_mark: | https://free3d.com/de/3d-model/rattlesnake-v04--784635.html   |  :white_check_mark:   |
  | Wespe | :white_check_mark:  |    https://assetstore.unity.com/packages/3d/characters/animals/fantasy-bee-135487 (Biene) <br /> https://free3d.com/de/3d-model/bee-89226.html |      |
- | Katze |  :white_check_mark:  |    https://assetstore.unity.com/packages/3d/characters/animals/free-chibi-cat-165490 <br />  https://free3d.com/de/3d-model/cat-v1--326682.html  |       |
+ | Katze |  :white_check_mark:  |    https://assetstore.unity.com/packages/3d/characters/animals/free-chibi-cat-165490 <br />  https://free3d.com/de/3d-model/cat-v1--326682.html  | :white_check_mark: |
  | Hund |  :white_check_mark:   |    https://free3d.com/3d-model/canaan-dog-v1--72376.html     |  :white_check_mark:  |
  | Schmetterling | :white_check_mark: |  https://assetstore.unity.com/packages/3d/characters/animals/butterfly-animated-58355  <br />                                            https://assetstore.unity.com/packages/3d/characters/animals/butterfly-with-animations-20985 |  |
  | Vogel | :white_check_mark:  | https://assetstore.unity.com/packages/3d/characters/animals/living-birds-15649       |       |
