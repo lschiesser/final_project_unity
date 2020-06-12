@@ -25,7 +25,7 @@ Metrics to record:
  |--------|--------|-------------------|------------|
  | Spinne | :white_check_mark: |   https://assetstore.unity.com/packages/3d/characters/animals/animated-spiders-pack-9864  |     |
  | Schlange | :white_check_mark: | https://free3d.com/de/3d-model/rattlesnake-v04--784635.html   |  :white_check_mark:   |
- | Wespe | :white_check_mark:  |    https://assetstore.unity.com/packages/3d/characters/animals/fantasy-bee-135487 (Biene) <br /> https://free3d.com/de/3d-model/bee-89226.html |      |
+ | Biene | :white_check_mark:  |   https://sketchfab.com/3d-models/bee-lowpoly-bc2078873d864db9b71f9064a935af7d | :white_check_mark:     |
  | Katze |  :white_check_mark:  |    https://assetstore.unity.com/packages/3d/characters/animals/free-chibi-cat-165490 <br />  https://free3d.com/de/3d-model/cat-v1--326682.html  | :white_check_mark: |
  | Hund |  :white_check_mark:   |    https://free3d.com/3d-model/canaan-dog-v1--72376.html     |  :white_check_mark:  |
  | Schmetterling | :white_check_mark: |  https://assetstore.unity.com/packages/3d/characters/animals/butterfly-animated-58355  <br />                                            https://assetstore.unity.com/packages/3d/characters/animals/butterfly-with-animations-20985 |  |
