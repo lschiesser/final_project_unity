@@ -23,7 +23,7 @@ Metrics to record:
  
  |Stimulus|Gefunden|Link (wenn möglich)| Importiert |
  |--------|--------|-------------------|------------|
- | Spinne | :white_check_mark: |   https://assetstore.unity.com/packages/3d/characters/animals/animated-spiders-pack-9864  |     |
+ | Spinne | :white_check_mark: |   https://assetstore.unity.com/packages/3d/characters/animals/animated-spiders-pack-9864  <br /> https://sketchfab.com/3d-models/realistic-spider-b89e69df279c4fe1b62179edac679617 | :white_check_mark: |
  | Schlange | :white_check_mark: | https://free3d.com/de/3d-model/rattlesnake-v04--784635.html   |  :white_check_mark:   |
  | Biene | :white_check_mark:  |   https://sketchfab.com/3d-models/bee-lowpoly-bc2078873d864db9b71f9064a935af7d | :white_check_mark:     |
  | Katze |  :white_check_mark:  |    https://assetstore.unity.com/packages/3d/characters/animals/free-chibi-cat-165490 <br />  https://free3d.com/de/3d-model/cat-v1--326682.html  | :white_check_mark: |
