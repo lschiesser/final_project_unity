@@ -63,3 +63,6 @@ crashlytics-build.properties
 
 # Exclude .zip files and folder for object files
 *.zip
+*.zip.meta
+*.rar
+*.rar.meta
