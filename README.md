@@ -28,11 +28,11 @@ Metrics to record:
  | Biene | :white_check_mark:  |   https://sketchfab.com/3d-models/bee-lowpoly-bc2078873d864db9b71f9064a935af7d | :white_check_mark:     |
  | Katze |  :white_check_mark:  |    https://assetstore.unity.com/packages/3d/characters/animals/free-chibi-cat-165490 <br />  https://free3d.com/de/3d-model/cat-v1--326682.html  | :white_check_mark: |
  | Hund |  :white_check_mark:   |    https://free3d.com/3d-model/canaan-dog-v1--72376.html     |  :white_check_mark:  |
- | Schmetterling | :white_check_mark: |  https://assetstore.unity.com/packages/3d/characters/animals/butterfly-animated-58355  <br />                                            https://assetstore.unity.com/packages/3d/characters/animals/butterfly-with-animations-20985 |  |
- | Vogel | :white_check_mark:  | https://assetstore.unity.com/packages/3d/characters/animals/living-birds-15649       |       |
- | Blume | :white_check_mark: |  https://assetstore.unity.com/packages/3d/vegetation/plants/lowpoly-flowers-47083  |          |
- | Pilz |   :white_check_mark:  |     https://assetstore.unity.com/packages/3d/environments/toadstools-pack-photoscanned-70294   |   |
- | Baum |  :white_check_mark:   |    https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-9-rainbow-tree-54622 <br />                                   https://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208 |   |
+ | Schmetterling | :white_check_mark: |  https://assetstore.unity.com/packages/3d/characters/animals/butterfly-animated-58355  <br />                          https://assetstore.unity.com/packages/3d/characters/animals/butterfly-with-animations-20985 <br /> https://sketchfab.com/3d-models/white-flower-9e025b18a39741a4a38b197cee3cdcac |  :white_check_mark:   |
+ | Vogel | :white_check_mark:  | https://assetstore.unity.com/packages/3d/characters/animals/living-birds-15649  <br /> https://free3d.com/3d-model/bird-v1--875504.html |   :white_check_mark:    |
+ | Blume | :white_check_mark: |  https://assetstore.unity.com/packages/3d/vegetation/plants/lowpoly-flowers-47083 <br/> https://sketchfab.com/3d-models/white-flower-9e025b18a39741a4a38b197cee3cdcac |   :white_check_mark:       |
+ | Pilz |   :white_check_mark:  |     https://assetstore.unity.com/packages/3d/environments/toadstools-pack-photoscanned-70294  <br/> https://free3d.com/3d-model/mushroomshitake--119909.html | :white_check_mark:  |
+ | Baum |  :white_check_mark:   |    https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-9-rainbow-tree-54622 <br />                                https://assetstore.unity.com/packages/3d/vegetation/trees/free-trees-103208 <br/>  https://free3d.com/3d-model/maple-tree-262328.html | :white_check_mark:  |
  
 ### How to import .obj-Files into Unity
 Before downloading anything, create folder "ext-objects" in Assets folder (this folder is not tracked by Git)
