@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1926874157490299680}
   m_Layer: 0
-  m_Name: 10192_MushroomShitake_v1-L3
+  m_Name: MushroomShitake_v1-L3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,7 @@ Transform:
   m_GameObject: {fileID: 3235546124471243059}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 30, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 2443287205288988480}
   m_Father: {fileID: 0}
