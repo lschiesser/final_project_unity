@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8059077389442068813}
   m_Layer: 0
   m_Name: MapleTree
-  m_TagString: Untagged
+  m_TagString: inanimate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

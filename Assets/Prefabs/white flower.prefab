@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 469913608085802865}
   m_Layer: 0
   m_Name: white flower
-  m_TagString: Untagged
+  m_TagString: inanimate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
