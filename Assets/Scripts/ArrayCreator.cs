@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -29,7 +30,7 @@ public class ArrayCreator : MonoBehaviour
         
         InitializeStimuli();
         
-        BuildArray();
+        BuildArray("fear", "inanimate");
     }
 
     // function called to initialize all important variables
@@ -75,11 +76,14 @@ public class ArrayCreator : MonoBehaviour
     }
 
     // function building the search array
-    public void BuildArray()
+    public void BuildArray(string targetId, string distractorId)
     {
-        SelectStimuli( "fear", "animate");
+        SelectStimuli(targetId, distractorId);
+        List<GameObject> searchArray = Enumerable.Repeat(_distractor, 8).ToList();
+        searchArray.Add(_target);
+        searchArray = Shuffle(searchArray);
         int stepper = 0;
-        for (var i = 0; i < stimuliPrefabs.Length; i++)
+        for (int i = 0; i < searchArray.Count; i++)
         {
             var tmp = i % 3;
             Debug.Log(i + " " + tmp);
@@ -87,9 +91,10 @@ public class ArrayCreator : MonoBehaviour
             {
                 stepper++;
             }
-
-            stimuliPrefabs[i].transform.position = new Vector3(cubeLength * stepper, cubeLength * tmp, 0);
-
+            var stimulusPosition = new Vector3(cubeLength * stepper, cubeLength * tmp, 0);
+            Transform stimTransform = searchArray[i].GetComponentsInChildren<Transform>(true)[0];
+            Quaternion stimRot = stimTransform.rotation;
+            Instantiate(searchArray[i], stimulusPosition, stimRot).transform.SetParent(transform);
             Debug.Log("Stepper: " + stepper);
         }
     }
@@ -103,8 +108,9 @@ public class ArrayCreator : MonoBehaviour
 
     public List<GameObject> Shuffle(List<GameObject> list)
     {
-        for (int i = list.Count; i > 0; i--)
+        for (int i = list.Count-1; i >= 0; i--)
         {
+            Debug.Log(i);
             int j = Random.Range(0, list.Count);
             var tmp = list[i];
             list[i] = list[j];
@@ -117,6 +123,6 @@ public class ArrayCreator : MonoBehaviour
     // function that destroys (or makes inivisible) search array
     public void DestroyArray()
     {
-
+        
     }
 }
