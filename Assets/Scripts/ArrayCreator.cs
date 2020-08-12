@@ -101,12 +101,12 @@ public class ArrayCreator : MonoBehaviour
 
     // function holding information about search array
     // e.g. position of target, target type, distractor type
-    public void GetInformation()
+    public Tuple<String, String> GetInformation()
     {
-
+        return new Tuple<string, string>(_distractor.name, _target.name);
     }
 
-    public List<GameObject> Shuffle(List<GameObject> list)
+    private List<GameObject> Shuffle(List<GameObject> list)
     {
         for (int i = list.Count-1; i >= 0; i--)
         {
@@ -123,6 +123,9 @@ public class ArrayCreator : MonoBehaviour
     // function that destroys (or makes inivisible) search array
     public void DestroyArray()
     {
-        
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }
