@@ -30,8 +30,17 @@ public class ArrayCreator : MonoBehaviour
         
         InitializeStimuli();
         
-        BuildArray("fear", "inanimate");
+        //BuildArray("fear", "inanimate");
     }
+    
+    
+    // function to hide object after certain amount of time 
+    
+    //IEnumerator RemoveAfterSeconds (int seconds, GameObject obj){
+     //   yield return new WaitForSeconds(seconds);
+      //  gameObject.SetActive(false);
+    //}
+    
 
     // function called to initialize all important variables
     private void InitializeStimuli()
@@ -79,6 +88,13 @@ public class ArrayCreator : MonoBehaviour
     public void BuildArray(string targetId, string distractorId)
     {
         SelectStimuli(targetId, distractorId);
+        
+        // show target for 3 seconds before array appears 
+        
+        //_target.SetActive(true);
+        //StartCoroutine(RemoveAfterSeconds(3, _target));
+        
+        
         List<GameObject> searchArray = Enumerable.Repeat(_distractor, 8).ToList();
         searchArray.Add(_target);
         searchArray = Shuffle(searchArray);
@@ -86,7 +102,7 @@ public class ArrayCreator : MonoBehaviour
         for (int i = 0; i < searchArray.Count; i++)
         {
             var tmp = i % 3;
-            Debug.Log(i + " " + tmp);
+            //Debug.Log(i + " " + tmp);
             if (tmp == 0 && i > 0)
             {
                 stepper++;
@@ -95,22 +111,22 @@ public class ArrayCreator : MonoBehaviour
             Transform stimTransform = searchArray[i].GetComponentsInChildren<Transform>(true)[0];
             Quaternion stimRot = stimTransform.rotation;
             Instantiate(searchArray[i], stimulusPosition, stimRot).transform.SetParent(transform);
-            Debug.Log("Stepper: " + stepper);
+            //Debug.Log("Stepper: " + stepper);
         }
     }
 
     // function holding information about search array
     // e.g. position of target, target type, distractor type
-    public void GetInformation()
+    public Tuple<String, String> GetInformation()
     {
-
+        return new Tuple<string, string>(_distractor.name, _target.name);
     }
 
     public List<GameObject> Shuffle(List<GameObject> list)
     {
         for (int i = list.Count-1; i >= 0; i--)
         {
-            Debug.Log(i);
+            //Debug.Log(i);
             int j = Random.Range(0, list.Count);
             var tmp = list[i];
             list[i] = list[j];
@@ -123,6 +139,10 @@ public class ArrayCreator : MonoBehaviour
     // function that destroys (or makes inivisible) search array
     public void DestroyArray()
     {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
         
     }
 }
