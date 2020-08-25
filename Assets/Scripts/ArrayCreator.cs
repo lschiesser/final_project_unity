@@ -122,7 +122,7 @@ public class ArrayCreator : MonoBehaviour
         return new Tuple<string, string>(_distractor.name, _target.name);
     }
 
-    public List<GameObject> Shuffle(List<GameObject> list)
+    private List<GameObject> Shuffle(List<GameObject> list)
     {
         for (int i = list.Count-1; i >= 0; i--)
         {
@@ -143,6 +143,5 @@ public class ArrayCreator : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        
     }
 }
