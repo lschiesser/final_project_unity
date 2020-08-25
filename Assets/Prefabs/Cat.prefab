@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3328421491662934419}
   - component: {fileID: 1947815662194492801}
   - component: {fileID: 5620619582663279807}
+  - component: {fileID: 5316087349888900627}
   m_Layer: 0
   m_Name: Cat
   m_TagString: animate
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5316087349888900627
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8198889413423717712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.5552, y: 61.0018, z: 37.582104}
+  m_Center: {x: 0, y: -0.016399384, z: 18.90135}

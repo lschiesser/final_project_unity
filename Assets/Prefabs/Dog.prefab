@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8920469024517986083}
   - component: {fileID: 2527836311756143229}
   - component: {fileID: 5073925281317396203}
+  - component: {fileID: -2709406621689396351}
   m_Layer: 0
-  m_Name: Canaan_Dog
+  m_Name: Dog
   m_TagString: animate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-2709406621689396351
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7252015201885598531}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.512212, y: 43.747517, z: 34.919216}
+  m_Center: {x: 0.0000023245516, y: 2.403948, z: 17.095804}

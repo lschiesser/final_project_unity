@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -45,6 +46,7 @@ public class ExperimentManager : MonoBehaviour
         //_header.Add("task_number");
         //_header.Add("condition");
         //_header.Add("correctAnswer");
+        instructions.ShowWelcomeMsg();
     }
     
     //add information about participants response, start new trial
@@ -60,25 +62,35 @@ public class ExperimentManager : MonoBehaviour
         //taskData.Add(_currentTaskNr.ToString());
        
         Debug.Log($"Time to answer: {_responseTime - _startStimuliTime}");
-        
-        StartNextTrial();
     }
 
     
     
     public void StartFirstTrial()
     {
-        _startStimuliTime = Time.realtimeSinceStartup;
+        arrayCreator.BuildArray("fear", "inanimate");
         instructions.ShowPrompt();
-        arrayCreator.BuildArray("fear",  "inanimate");
-        _currentTaskNr++;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            instructions.HidePrompt();
+            _startStimuliTime = Time.realtimeSinceStartup;
+            arrayCreator.ShowArray();
+            _currentTaskNr++;
+        }
     }
     public void StartNextTrial()
     {
-        _startStimuliTime = Time.realtimeSinceStartup;
-        instructions.ShowPrompt();
         arrayCreator.BuildArray("fear",  "inanimate");
-        _currentTaskNr++;
+        
+        instructions.ShowPrompt();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("VAR");
+            instructions.HidePrompt();
+            _startStimuliTime = Time.realtimeSinceStartup;
+            arrayCreator.ShowArray();
+            _currentTaskNr++;
+        }
     }
     
     
@@ -87,17 +99,8 @@ public class ExperimentManager : MonoBehaviour
     void Update()
     {
         // Let participant read instructions
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _finishedReading = true;
-            instructions.message.text = "";
-        }
-        if (!_finishedReading)
-        {
-            instructions.ShowWelcomeMsg();
-        }
 
-        
+
         // start trials
         if (_finishedReading)
         {
@@ -106,14 +109,24 @@ public class ExperimentManager : MonoBehaviour
                 StartFirstTrial();
             }
                 
-            if (responses._responded)
+            if (responses.GetResponse())
             {
                 arrayCreator.DestroyArray();
-                responses._responded = false;
+                responses.SetFalse();
                 ExperimentInformation(true);
-
+                StartNextTrial();
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _finishedReading = true;
+                instructions.message.text = "";
             }
         }
         // add later multiple conditions with BuildArray("fear",  "animate") etc.
-    }
+    } 
 }
+
+

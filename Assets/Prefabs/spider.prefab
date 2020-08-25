@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6443696213584084248}
   - component: {fileID: 5993265375858502091}
   - component: {fileID: 3030634281164391739}
+  - component: {fileID: -2044685452113786044}
   m_Layer: 0
   m_Name: spider
   m_TagString: fear
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-2044685452113786044
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6293031888698816942}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.066642, y: 0.75229114, z: 3.4463828}
+  m_Center: {x: 0, y: 0.37580058, z: -0.0039030323}

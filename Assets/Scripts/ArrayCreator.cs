@@ -93,8 +93,10 @@ public class ArrayCreator : MonoBehaviour
         
         //_target.SetActive(true);
         //StartCoroutine(RemoveAfterSeconds(3, _target));
-        
-        
+    }
+
+    public void ShowArray()
+    {
         List<GameObject> searchArray = Enumerable.Repeat(_distractor, 8).ToList();
         searchArray.Add(_target);
         searchArray = Shuffle(searchArray);

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6647681388576083230}
   - component: {fileID: 36743024701606377}
   - component: {fileID: 5901703198581921779}
+  - component: {fileID: 1422144087561487296}
   m_Layer: 0
   m_Name: RattleSnake
   m_TagString: fear
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1422144087561487296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336217676853757228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 34.507313, y: 35.53901, z: 18.40661}
+  m_Center: {x: 0.4619501, y: 0.6789988, z: 8.9007015}
