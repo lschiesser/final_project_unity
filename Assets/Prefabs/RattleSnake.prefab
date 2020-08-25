@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 36743024701606377}
   - component: {fileID: 5901703198581921779}
   m_Layer: 0
-  m_Name: RattleSnake_v04
+  m_Name: RattleSnake
   m_TagString: fear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
