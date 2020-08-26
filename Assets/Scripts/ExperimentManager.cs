@@ -10,6 +10,8 @@ public class ExperimentManager : MonoBehaviour
     public ArrayCreator arrayCreator;
     public ExperimentInstructions instructions;
     public ResponseDetection responses;
+
+    public GameObject target;
     
     [Header("Experiment variables")]
     private bool _finishedReading;
@@ -47,6 +49,7 @@ public class ExperimentManager : MonoBehaviour
         //_header.Add("condition");
         //_header.Add("correctAnswer");
         instructions.ShowWelcomeMsg();
+        
     }
     
     //add information about participants response, start new trial
@@ -61,7 +64,7 @@ public class ExperimentManager : MonoBehaviour
         //taskData.Add(_currentBlockNr.ToString());
         //taskData.Add(_currentTaskNr.ToString());
        
-        Debug.Log($"Time to answer: {_responseTime - _startStimuliTime}");
+        //Debug.Log($"Time to answer: {_responseTime - _startStimuliTime}");
     }
 
     
@@ -70,9 +73,12 @@ public class ExperimentManager : MonoBehaviour
     {
         arrayCreator.BuildArray("fear", "inanimate");
         instructions.ShowPrompt();
+        target = arrayCreator.ShowTarget();
+        target.transform.position = new Vector3(x:20, y:150, z:280);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             instructions.HidePrompt();
+            Destroy(this.target); 
             _startStimuliTime = Time.realtimeSinceStartup;
             arrayCreator.ShowArray();
             _currentTaskNr++;
@@ -81,12 +87,15 @@ public class ExperimentManager : MonoBehaviour
     public void StartNextTrial()
     {
         arrayCreator.BuildArray("fear",  "inanimate");
-        
         instructions.ShowPrompt();
+        target = arrayCreator.ShowTarget();
+        target.transform.position = new Vector3(x:20, y:150, z:280);
+       
         if (Input.GetKeyDown(KeyCode.Space))
-        {
+        { 
             Debug.Log("VAR");
             instructions.HidePrompt();
+            Destroy(this.target); 
             _startStimuliTime = Time.realtimeSinceStartup;
             arrayCreator.ShowArray();
             _currentTaskNr++;

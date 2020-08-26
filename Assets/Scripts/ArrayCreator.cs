@@ -30,16 +30,7 @@ public class ArrayCreator : MonoBehaviour
         
         InitializeStimuli();
         
-        //BuildArray("fear", "inanimate");
     }
-    
-    
-    // function to hide object after certain amount of time 
-    
-    //IEnumerator RemoveAfterSeconds (int seconds, GameObject obj){
-     //   yield return new WaitForSeconds(seconds);
-      //  gameObject.SetActive(false);
-    //}
     
 
     // function called to initialize all important variables
@@ -88,12 +79,16 @@ public class ArrayCreator : MonoBehaviour
     public void BuildArray(string targetId, string distractorId)
     {
         SelectStimuli(targetId, distractorId);
-        
-        // show target for 3 seconds before array appears 
-        
-        //_target.SetActive(true);
-        //StartCoroutine(RemoveAfterSeconds(3, _target));
     }
+
+    // return current target 
+    public GameObject ShowTarget()
+    {
+        GameObject target = Instantiate(_target);
+        print(target.name); // all three target animals are printed ..why? 
+        return target;
+    }
+    
 
     public void ShowArray()
     {
