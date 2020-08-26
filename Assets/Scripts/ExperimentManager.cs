@@ -65,6 +65,8 @@ public class ExperimentManager : MonoBehaviour
         //taskData.Add(_currentTaskNr.ToString());
        
         //Debug.Log($"Time to answer: {_responseTime - _startStimuliTime}");
+        
+        StartNextTrial();
     }
 
     
@@ -101,7 +103,12 @@ public class ExperimentManager : MonoBehaviour
             _currentTaskNr++;
         }
     }
-    
+
+    private void StartBlock()
+    {
+     StartFirstTrial();
+     Debug.Log("start");
+    }
     
     
     // Experiment with multiple trials
@@ -111,19 +118,14 @@ public class ExperimentManager : MonoBehaviour
 
 
         // start trials
+        // wir müssen hier was umstrukturieren, dass alles nur getriggert wird bei Tastendruck/Response
         if (_finishedReading)
         {
-            if (_currentTaskNr == 0)
-            { 
-                StartFirstTrial();
-            }
-                
             if (responses.GetResponse())
             {
                 arrayCreator.DestroyArray();
                 responses.SetFalse();
                 ExperimentInformation(true);
-                StartNextTrial();
             }
         }
         else
@@ -132,6 +134,7 @@ public class ExperimentManager : MonoBehaviour
             {
                 _finishedReading = true;
                 instructions.message.text = "";
+                StartBlock();
             }
         }
         // add later multiple conditions with BuildArray("fear",  "animate") etc.
