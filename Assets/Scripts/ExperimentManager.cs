@@ -11,7 +11,7 @@ public class ExperimentManager : MonoBehaviour
     public ExperimentInstructions instructions;
     public ResponseDetection responses;
 
-    public GameObject target;
+    private GameObject _target;
     
     [Header("Experiment variables")]
     private bool _finishedReading;
@@ -65,7 +65,7 @@ public class ExperimentManager : MonoBehaviour
         //taskData.Add(_currentTaskNr.ToString());
        
         //Debug.Log($"Time to answer: {_responseTime - _startStimuliTime}");
-        
+        Debug.Log("expinfo");
         StartNextTrial();
     }
 
@@ -74,13 +74,10 @@ public class ExperimentManager : MonoBehaviour
     public void StartFirstTrial()
     {
         arrayCreator.BuildArray("fear", "inanimate");
-        instructions.ShowPrompt();
-        target = arrayCreator.ShowTarget();
-        target.transform.position = new Vector3(x:20, y:150, z:280);
-        if (Input.GetKeyDown(KeyCode.Space))
+        instructions.ShowPrompt(arrayCreator);
+        if (Input.GetKeyDown(KeyCode.Y))
         {
-            instructions.HidePrompt();
-            Destroy(this.target); 
+            instructions.HideTargetPrompt();
             _startStimuliTime = Time.realtimeSinceStartup;
             arrayCreator.ShowArray();
             _currentTaskNr++;
@@ -89,15 +86,12 @@ public class ExperimentManager : MonoBehaviour
     public void StartNextTrial()
     {
         arrayCreator.BuildArray("fear",  "inanimate");
-        instructions.ShowPrompt();
-        target = arrayCreator.ShowTarget();
-        target.transform.position = new Vector3(x:20, y:150, z:280);
-       
-        if (Input.GetKeyDown(KeyCode.Space))
+        instructions.ShowPrompt(arrayCreator);
+       Debug.Log("next before s");
+        if (Input.GetKeyDown(KeyCode.Y))
         { 
             Debug.Log("VAR");
-            instructions.HidePrompt();
-            Destroy(this.target); 
+            instructions.HideTargetPrompt();
             _startStimuliTime = Time.realtimeSinceStartup;
             arrayCreator.ShowArray();
             _currentTaskNr++;
@@ -105,9 +99,9 @@ public class ExperimentManager : MonoBehaviour
     }
 
     private void StartBlock()
-    {
-     StartFirstTrial();
-     Debug.Log("start");
+    { 
+        Debug.Log("start");
+        StartFirstTrial();
     }
     
     
@@ -119,6 +113,8 @@ public class ExperimentManager : MonoBehaviour
 
         // start trials
         // wir müssen hier was umstrukturieren, dass alles nur getriggert wird bei Tastendruck/Response
+        // außerdem müssen alle KeyPresses im Update Loop gehandelt werden also müssen wir unsere Funktionen noch weiter aufbrechen
+        // also ShowPrompt, HidePrompt auf jeden Fall und dann auch mit dem Array und so
         if (_finishedReading)
         {
             if (responses.GetResponse())
@@ -133,7 +129,7 @@ public class ExperimentManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _finishedReading = true;
-                instructions.message.text = "";
+                instructions.HidePrompt();
                 StartBlock();
             }
         }

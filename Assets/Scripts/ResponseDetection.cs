@@ -26,14 +26,13 @@ public class ResponseDetection : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             
-            if (Physics.Raycast(ray, out hit)){
+            if (Physics.Raycast(ray, out hit, 100)){
                 // if something was clicked on, print its name and change respond-boolean to true
                 if (hit.collider)
                 {
                     PrintName(hit.collider.gameObject);
                     Debug.Log("Did Hit");
                     _responded = true;
-                    
                     //problem: array object is only clickable; no individual objects
                     //problem2: only works once ?! 
                 }
@@ -44,7 +43,12 @@ public class ResponseDetection : MonoBehaviour
 
     public void SetFalse()
     {
-        _flag = false;
+        _responded = false;
+    }
+
+    private void SetTrue()
+    {
+        _flag = true;
     }
 
     public bool GetResponse()

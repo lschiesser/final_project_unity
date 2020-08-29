@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -6,6 +7,7 @@ using TMPro;
 public class ExperimentInstructions : MonoBehaviour
 {
     public TextMeshProUGUI message;
+    private GameObject _target;
 
     public void ShowWelcomeMsg()
     {
@@ -16,14 +18,22 @@ public class ExperimentInstructions : MonoBehaviour
                        "accurate as possible! If you feel ready to start the experiment, click the space bar.";
     }
 
-    public void ShowPrompt()
+    public void ShowPrompt(ArrayCreator creator)
     {
         message.text = "Search for: ";
+        _target = creator.ShowTarget();
+        _target.transform.position = new Vector3(x:20, y:150, z:280);
     }
 
     public void HidePrompt()
     {
         message.text = "";
+    }
+
+    public void HideTargetPrompt()
+    {
+        HidePrompt();
+        Destroy(_target);
     }
 
     public void ShowGoodbyeMsg()
