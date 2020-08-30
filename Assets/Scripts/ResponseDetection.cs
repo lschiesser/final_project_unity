@@ -16,18 +16,19 @@ public class ResponseDetection : MonoBehaviour
     // Check if participant clicked on one of the objects 
     void Update()
     {
-        if (_flag)
+        /*if (_flag)
         {
             _flag = false;
             _responded = false;
-        }
+        }*/
         if (Input.GetMouseButtonDown(0)){ // if left button pressed...
             
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            
-            if (Physics.Raycast(ray, out hit, 100)){
+            Debug.Log("mouse down");
+            if (Physics.Raycast(ray, out hit)){
                 // if something was clicked on, print its name and change respond-boolean to true
+                Debug.Log("raycast");
                 if (hit.collider)
                 {
                     PrintName(hit.collider.gameObject);

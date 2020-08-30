@@ -66,42 +66,22 @@ public class ExperimentManager : MonoBehaviour
        
         //Debug.Log($"Time to answer: {_responseTime - _startStimuliTime}");
         Debug.Log("expinfo");
-        StartNextTrial();
+        PrepareNextTrial();
     }
-
-    
-    
-    public void StartFirstTrial()
-    {
-        arrayCreator.BuildArray("fear", "inanimate");
-        instructions.ShowPrompt(arrayCreator);
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            instructions.HideTargetPrompt();
-            _startStimuliTime = Time.realtimeSinceStartup;
-            arrayCreator.ShowArray();
-            _currentTaskNr++;
-        }
-    }
-    public void StartNextTrial()
+    public void PrepareNextTrial()
     {
         arrayCreator.BuildArray("fear",  "inanimate");
         instructions.ShowPrompt(arrayCreator);
        Debug.Log("next before s");
-        if (Input.GetKeyDown(KeyCode.Y))
-        { 
-            Debug.Log("VAR");
-            instructions.HideTargetPrompt();
-            _startStimuliTime = Time.realtimeSinceStartup;
-            arrayCreator.ShowArray();
-            _currentTaskNr++;
-        }
     }
 
-    private void StartBlock()
-    { 
-        Debug.Log("start");
-        StartFirstTrial();
+    public void StartNextTrial()
+    {
+        Debug.Log("VAR");
+        instructions.HideTargetPrompt();
+        _startStimuliTime = Time.realtimeSinceStartup;
+        arrayCreator.ShowArray();
+        _currentTaskNr++;
     }
     
     
@@ -117,6 +97,11 @@ public class ExperimentManager : MonoBehaviour
         // also ShowPrompt, HidePrompt auf jeden Fall und dann auch mit dem Array und so
         if (_finishedReading)
         {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StartNextTrial();
+                
+            }
             if (responses.GetResponse())
             {
                 arrayCreator.DestroyArray();
@@ -130,7 +115,7 @@ public class ExperimentManager : MonoBehaviour
             {
                 _finishedReading = true;
                 instructions.HidePrompt();
-                StartBlock();
+                PrepareNextTrial();
             }
         }
         // add later multiple conditions with BuildArray("fear",  "animate") etc.
