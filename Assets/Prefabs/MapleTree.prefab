@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 556555061817369205}
   - component: {fileID: 1006984883749598886}
   - component: {fileID: 8420365314373999190}
+  - component: {fileID: 987700504338840224}
   m_Layer: 0
-  m_Name: default
+  m_Name: MapleTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,6 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &987700504338840224
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684700355593610947}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 28.647621, y: 51.494465, z: 26.928715}
+  m_Center: {x: 0.8232951, y: 25.747187, z: -0.9045749}
 --- !u!1 &6452745633664418654
 GameObject:
   m_ObjectHideFlags: 0

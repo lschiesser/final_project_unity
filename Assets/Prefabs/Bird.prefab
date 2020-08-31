@@ -96,8 +96,9 @@ GameObject:
   - component: {fileID: 2275567595755292696}
   - component: {fileID: 2981562531996088191}
   - component: {fileID: 7443470845654688605}
+  - component: {fileID: 2868510201040319986}
   m_Layer: 0
-  m_Name: 12213_bird
+  m_Name: Bird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,3 +165,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2868510201040319986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2795716990407634965}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16.768301, y: 6.3610015, z: 7.977902}
+  m_Center: {x: -1.2572501, y: 0.0018999581, z: 3.917351}
