@@ -4,6 +4,7 @@ To-Do:
 - [ ] Experiment Info fertigstellen
 - [ ] Ending sequence programmieren
 - [ ] Issue mit prefabs, dass sie zu weit unten sind bei ShowArray (verschieden Ankerpoints)
+- [ ] Randomisierung von target und distractor category
 
 3D Modelling - mögliche Programme:
 - [ProBuilder](https://docs.unity3d.com/Packages/com.unity.probuilder@4.0/manual/index.html)
