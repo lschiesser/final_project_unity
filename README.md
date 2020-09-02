@@ -1,7 +1,9 @@
 # Final project Unity
 
-Aufgabe bis nächste Woche:
-- Nach Assets suchen für die targets und distractors
+To-Do:
+- [ ] Experiment Info fertigstellen
+- [ ] Ending sequence programmieren
+- [ ] Issue mit prefabs, dass sie zu weit unten sind bei ShowArray (verschieden Ankerpoints)
 
 3D Modelling - mögliche Programme:
 - [ProBuilder](https://docs.unity3d.com/Packages/com.unity.probuilder@4.0/manual/index.html)
