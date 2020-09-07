@@ -85,7 +85,7 @@ public class ArrayCreator : MonoBehaviour
     public GameObject ShowTarget()
     {
         GameObject target = Instantiate(_target);
-        print(target.name); // all three target animals are printed ..why? 
+        print(target.name); 
         return target;
     }
     

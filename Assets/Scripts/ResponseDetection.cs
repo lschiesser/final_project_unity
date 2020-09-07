@@ -5,6 +5,7 @@ using UnityEngine;
 public class ResponseDetection : MonoBehaviour
 {
     public bool _responded;
+    public string _name;
     private bool _flag;
     
     void Start()
@@ -34,8 +35,7 @@ public class ResponseDetection : MonoBehaviour
                     PrintName(hit.collider.gameObject);
                     Debug.Log("Did Hit");
                     _responded = true;
-                    //problem: array object is only clickable; no individual objects
-                    //problem2: only works once ?! 
+                    _name = hit.collider.gameObject.name;
                 }
                 
             }
@@ -59,5 +59,10 @@ public class ResponseDetection : MonoBehaviour
     public void PrintName(GameObject obj)
     {
         print(obj.name);
+    }
+
+    public string CheckResponse()
+    {
+        return _name;
     }
 }

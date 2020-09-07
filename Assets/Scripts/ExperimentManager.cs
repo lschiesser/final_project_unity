@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using Random = UnityEngine.Random;
+
 
 public class ExperimentManager : MonoBehaviour
 {
@@ -15,13 +17,14 @@ public class ExperimentManager : MonoBehaviour
     
     [Header("Experiment variables")]
     private bool _finishedReading;
-    private int _currentTaskNr;
-    public int numberOfTasks;
-    
-    //public int numberOfBlocks;
-    //private int _currentBlockNr;
-    //private bool _isRunning;
-    
+    private int _expcond1;
+    private int _expcond2;
+    private int _controlcond1;
+    private int _controlcond2;
+    private bool _endReached;
+    private int _trialtype;
+    public string targetname;
+    private bool _correctAnsw;
     private float _startStimuliTime;
     private float _responseTime;
     private List<List<string>> _data;
@@ -33,46 +36,83 @@ public class ExperimentManager : MonoBehaviour
     public void Start()
     {
         _finishedReading = false;
-        _currentTaskNr = 0;
-        numberOfTasks = 3;
-        
-        //_currentBlockNr = 0;
-        //_isRunning = false;
+        _expcond1 = 0;
+        _expcond2 = 0;
+        _controlcond1 = 0;
+        _controlcond2 = 0;
+        _endReached = false;
         
         _data = new List<List<string>>();
         _header = new List<string>();
         _header.Add("target_distractor");
         _header.Add("response_time");
-        
-        //_header.Add(("block_number"));
-        //_header.Add("task_number");
-        //_header.Add("condition");
-        //_header.Add("correctAnswer");
+        _header.Add("condition");
+        _header.Add("correctAnswer");
         instructions.ShowWelcomeMsg();
         
     }
     
     //add information about participants response, start new trial
-    private void ExperimentInformation(bool responded)
+    private void ExperimentInformation(int condition, bool answer)
     {
         List<string> taskData = new List<string>();
         _responseTime = Time.realtimeSinceStartup;
         taskData.Add(arrayCreator.GetInformation().ToString());
         taskData.Add((_responseTime - _startStimuliTime).ToString());
+        taskData.Add(condition.ToString());
+        taskData.Add(answer.ToString());
         _data.Add(taskData);
         
-        //taskData.Add(_currentBlockNr.ToString());
-        //taskData.Add(_currentTaskNr.ToString());
-       
-        //Debug.Log($"Time to answer: {_responseTime - _startStimuliTime}");
         Debug.Log("expinfo");
-        PrepareNextTrial();
     }
-    public void PrepareNextTrial()
+    
+    public int PrepareNextTrial()
     {
-        arrayCreator.BuildArray("fear",  "inanimate");
-        instructions.ShowPrompt(arrayCreator);
-       Debug.Log("next before s");
+        int rand = Random.Range(0, 4);
+        //choose between 4 different conditions
+        //limit amount of executions of each condition to 3; hence 16 trials in total 
+
+        if (rand == 0 && _expcond1 < 4)
+        {
+            arrayCreator.BuildArray("fear",  "inanimate");
+            _expcond1++;
+            targetname = instructions.ShowPrompt(arrayCreator);
+            
+            Debug.Log("next before s");
+            return rand; //to indicate which trial type we have (kinda redundant bc you can get that from GetInformation() but oh well....)
+        } 
+        else if (rand == 1 && _expcond2 < 4)
+        {
+            arrayCreator.BuildArray("fear",  "animate");
+            _expcond2++;
+            targetname = instructions.ShowPrompt(arrayCreator);
+            
+            Debug.Log("next before s");
+            return rand; 
+        } 
+        else if (rand == 2 && _controlcond1 < 4)
+        {
+            arrayCreator.BuildArray("animate",  "inanimate");
+            _controlcond1++;
+            targetname = instructions.ShowPrompt(arrayCreator);
+            
+            Debug.Log("next before s");
+            return rand; 
+        }
+        else if (rand == 3 && _controlcond2 < 4)
+        {
+            arrayCreator.BuildArray("inanimate",  "animate");
+            _controlcond2++;
+            targetname = instructions.ShowPrompt(arrayCreator);
+            
+            Debug.Log("next before s");
+            return rand; 
+        }
+        else
+        {
+            _endReached = true;
+            return 100; 
+        }
     }
 
     public void StartNextTrial()
@@ -81,7 +121,13 @@ public class ExperimentManager : MonoBehaviour
         instructions.HideTargetPrompt();
         _startStimuliTime = Time.realtimeSinceStartup;
         arrayCreator.ShowArray();
-        _currentTaskNr++;
+    }
+
+    public void EndExperiment()
+    {
+        instructions.ShowGoodbyeMsg();
+        // maybe add questionaire about snake phobia etc
+        // create output file 
     }
     
     
@@ -89,12 +135,11 @@ public class ExperimentManager : MonoBehaviour
     void Update()
     {
         // Let participant read instructions
-
-
         // start trials
         // wir müssen hier was umstrukturieren, dass alles nur getriggert wird bei Tastendruck/Response
         // außerdem müssen alle KeyPresses im Update Loop gehandelt werden also müssen wir unsere Funktionen noch weiter aufbrechen
         // also ShowPrompt, HidePrompt auf jeden Fall und dann auch mit dem Array und so
+        
         if (_finishedReading)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -102,11 +147,30 @@ public class ExperimentManager : MonoBehaviour
                 StartNextTrial();
                 
             }
-            if (responses.GetResponse())
+            if (responses.GetResponse() && _endReached == false)
             {
                 arrayCreator.DestroyArray();
                 responses.SetFalse();
-                ExperimentInformation(true);
+                //check response
+                string clickedobj = responses.CheckResponse();
+                if (clickedobj == targetname)
+                {
+                    _correctAnsw = true;
+                }
+                else
+                {
+                    _correctAnsw = false;
+                }
+                //print(_correctAnsw);
+                
+                ExperimentInformation(_trialtype, _correctAnsw);
+                _trialtype = PrepareNextTrial();
+            }
+
+            if (_endReached == true)
+            {
+                EndExperiment();
+                Application.Quit(); //only works in built game
             }
         }
         else
@@ -115,10 +179,9 @@ public class ExperimentManager : MonoBehaviour
             {
                 _finishedReading = true;
                 instructions.HidePrompt();
-                PrepareNextTrial();
+                _trialtype = PrepareNextTrial();
             }
         }
-        // add later multiple conditions with BuildArray("fear",  "animate") etc.
     } 
 }
 
