@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -104,9 +102,13 @@ public class ArrayCreator : MonoBehaviour
             {
                 stepper++;
             }
-            var stimulusPosition = new Vector3(cubeLength * stepper, cubeLength * tmp, 0);
+
+            
+            
             Transform stimTransform = searchArray[i].GetComponentsInChildren<Transform>(true)[0];
             Quaternion stimRot = stimTransform.rotation;
+            Vector3 stimPos = stimTransform.position;
+            var stimulusPosition = stimPos + new Vector3(cubeLength * stepper, cubeLength * tmp, 0);
             Instantiate(searchArray[i], stimulusPosition, stimRot).transform.SetParent(transform);
             //Debug.Log("Stepper: " + stepper);
         }
