@@ -22,6 +22,7 @@ public class ExperimentManager : MonoBehaviour
     private int _controlcond1;
     private int _controlcond2;
     private bool _endReached;
+    private bool _presentTarget;
     private int _trialtype;
     public string targetname;
     private bool _correctAnsw;
@@ -41,6 +42,7 @@ public class ExperimentManager : MonoBehaviour
         _controlcond1 = 0;
         _controlcond2 = 0;
         _endReached = false;
+        _presentTarget = true;
         
         _data = new List<List<string>>();
         _header = new List<string>();
@@ -68,6 +70,8 @@ public class ExperimentManager : MonoBehaviour
     
     public int PrepareNextTrial()
     {
+        _presentTarget = true;
+        
         int rand = Random.Range(0, 4);
         //choose between 4 different conditions
         //limit amount of executions of each condition to 3; hence 16 trials in total 
@@ -126,6 +130,9 @@ public class ExperimentManager : MonoBehaviour
     public void EndExperiment()
     {
         instructions.ShowGoodbyeMsg();
+        List<string> csvLines = CsvTools.GenerateCsv(_data, _header);
+        CsvTools.SaveFile(Application.dataPath+"/Data/"+System.Guid.NewGuid(), csvLines);
+        //Application.Quit();
         // maybe add questionaire about snake phobia etc
         // create output file 
     }
@@ -134,24 +141,19 @@ public class ExperimentManager : MonoBehaviour
     // Experiment with multiple trials
     void Update()
     {
-        // Let participant read instructions
-        // start trials
-        // wir müssen hier was umstrukturieren, dass alles nur getriggert wird bei Tastendruck/Response
-        // außerdem müssen alle KeyPresses im Update Loop gehandelt werden also müssen wir unsere Funktionen noch weiter aufbrechen
-        // also ShowPrompt, HidePrompt auf jeden Fall und dann auch mit dem Array und so
-        
-        if (_finishedReading)
+        if (_finishedReading && _endReached == false)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && _presentTarget)
             {
                 StartNextTrial();
-                
+                _presentTarget = false;
+
             }
             if (responses.GetResponse() && _endReached == false)
             {
                 arrayCreator.DestroyArray();
                 responses.SetFalse();
-                //check response
+                //check response to see if answer was correct
                 string clickedobj = responses.CheckResponse();
                 if (clickedobj == targetname)
                 {
@@ -166,12 +168,6 @@ public class ExperimentManager : MonoBehaviour
                 ExperimentInformation(_trialtype, _correctAnsw);
                 _trialtype = PrepareNextTrial();
             }
-
-            if (_endReached == true)
-            {
-                EndExperiment();
-                Application.Quit(); //only works in built game
-            }
         }
         else
         {
@@ -181,6 +177,12 @@ public class ExperimentManager : MonoBehaviour
                 instructions.HidePrompt();
                 _trialtype = PrepareNextTrial();
             }
+        }
+        
+        if (_endReached == true)
+        {
+            EndExperiment();
+            Application.Quit();
         }
     } 
 }
