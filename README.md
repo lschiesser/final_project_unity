@@ -1,10 +1,10 @@
 # Final project Unity
 
-To-Do:
-- [ ] Experiment Info fertigstellen
-- [ ] Ending sequence programmieren
-- [ ] Issue mit prefabs, dass sie zu weit unten sind bei ShowArray (verschieden Ankerpoints)
-- [ ] Randomisierung von target und distractor category
+To-Do/New Issues:
+- [ ] Es werden nicht immer 16 trials durchgeführt, weil wenn random vier mal hintereinander die gleiche condition wählt, wird danach endReached auf true gesetzt ohne das die anderen dran waren (lässt sich bestimmt mit 'try' Befehl irgendwie beheben
+- [ ] Csv wird beim Laufen im editor erstellt aber nicht wenn die App läuft
+- [ ] Application.Quit() funktioniert in der App nicht (idk....)
+- [ ] Wenn man während der Target Presentation auf das target mit der Mouse klickt, verschwindet es danach nicht mehr (entweder zerstören wir jedes GameObjekt wenn man darauf klickt oder wir finden heraus wie man MouseClick disabled während der target presentation...)
 
 3D Modelling - mögliche Programme:
 - [ProBuilder](https://docs.unity3d.com/Packages/com.unity.probuilder@4.0/manual/index.html)
