@@ -1,10 +1,11 @@
 # Final project Unity
 
 To-Do/New Issues:
-- [ ] Es werden nicht immer 16 trials durchgeführt, weil wenn random vier mal hintereinander die gleiche condition wählt, wird danach endReached auf true gesetzt ohne das die anderen dran waren (lässt sich bestimmt mit 'try' Befehl irgendwie beheben
-- [ ] Csv wird beim Laufen im editor erstellt aber nicht wenn die App läuft
-- [ ] Application.Quit() funktioniert in der App nicht (idk....)
-- [ ] Wenn man während der Target Presentation auf das target mit der Mouse klickt, verschwindet es danach nicht mehr (entweder zerstören wir jedes GameObjekt wenn man darauf klickt oder wir finden heraus wie man MouseClick disabled während der target presentation...)
+- [ ] Es werden nicht immer 16 trials durchgeführt, weil wenn random vier mal hintereinander die gleiche condition wählt, wird danach endReached auf true gesetzt ohne das die anderen dran waren --> ich dachte ich hätte das gelöst aber irgendwie funktionierts trotzdem nicht 
+- [ ] Wenn man während der Target Presentation auf das target mit der Mouse klickt, verschwindet es danach nicht mehr (entweder zerstören wir jedes GameObjekt wenn man darauf klickt oder wir finden heraus wie man MouseClick disabled während der target presentation...) --> Zerstören ist keine Option und disablen geht auch nicht so einfach, weil es in der Update Funktion ist und idk #donewiththisshit
+
+For CSV:
+Wenn die final_project_unity.exe Anwendung gebuilted wurde, gibt es automatisch einen Ordner final_project_unity_Data und in diesem Ordner muss noch ein Ordner erstellt werden namens "Data" und dort werden dann die csv Datein abgespeichert 
 
 3D Modelling - mögliche Programme:
 - [ProBuilder](https://docs.unity3d.com/Packages/com.unity.probuilder@4.0/manual/index.html)
