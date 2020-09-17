@@ -22,7 +22,7 @@ public class ExperimentManager : MonoBehaviour
     private int _controlcond1;
     private int _controlcond2;
     private bool _endReached;
-    private bool _presentTarget;
+    public bool _presentTarget;
     private int _trialtype;
     public string targetname;
     private bool _correctAnsw;
@@ -74,7 +74,7 @@ public class ExperimentManager : MonoBehaviour
         
         int rand = Random.Range(0, 4);
         //choose between 4 different conditions
-        //limit amount of executions of each condition to 3; hence 16 trials in total 
+        //limit amount of executions of each condition to 3; hence 12 trials in total 
 
         if (rand == 0 && _expcond1 < 4)
         {
@@ -112,10 +112,14 @@ public class ExperimentManager : MonoBehaviour
             Debug.Log("next before s");
             return rand; 
         }
-        else
+        else if (_controlcond1 == 3 && _controlcond2 == 3 && _expcond1 == 3 && _expcond2 ==3)
         {
             _endReached = true;
             return 100; 
+        }
+        else
+        {
+            return PrepareNextTrial();
         }
     }
 
@@ -130,11 +134,9 @@ public class ExperimentManager : MonoBehaviour
     public void EndExperiment()
     {
         instructions.ShowGoodbyeMsg();
+        // could add questionnaire about e.g. snake phobia here
         List<string> csvLines = CsvTools.GenerateCsv(_data, _header);
         CsvTools.SaveFile(Application.dataPath+"/Data/"+System.Guid.NewGuid(), csvLines);
-        //Application.Quit();
-        // maybe add questionaire about snake phobia etc
-        // create output file 
     }
     
     
@@ -143,11 +145,10 @@ public class ExperimentManager : MonoBehaviour
     {
         if (_finishedReading && _endReached == false)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && _presentTarget)
+            if ((Input.GetKeyDown(KeyCode.Space)) && _presentTarget)
             {
                 StartNextTrial();
                 _presentTarget = false;
-
             }
             if (responses.GetResponse() && _endReached == false)
             {

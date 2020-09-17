@@ -6,39 +6,52 @@ public class ResponseDetection : MonoBehaviour
 {
     public bool _responded;
     public string _name;
-    private bool _flag;
+   // public bool _targetSeen;
+   
     
     void Start()
     {
         _responded = false;
-        _flag = false;
+        //_targetSeen = false;
     }
 
+    
     // Check if participant clicked on one of the objects 
     void Update()
     {
-        /*if (_flag)
+        
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
-            _flag = false;
-            _responded = false;
+            _targetSeen = true;
         }*/
+        
+        
         if (Input.GetMouseButtonDown(0)){ // if left button pressed...
             
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Debug.Log("mouse down");
-            if (Physics.Raycast(ray, out hit)){
-                // if something was clicked on, print its name and change respond-boolean to true
-                Debug.Log("raycast");
-                if (hit.collider)
-                {
-                    PrintName(hit.collider.gameObject);
-                    Debug.Log("Did Hit");
-                    _responded = true;
-                    _name = hit.collider.gameObject.name;
-                }
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                Debug.Log("mouse down");
+                if (Physics.Raycast(ray, out hit)){
+                    // if something was clicked on, print its name and change respond-boolean to true
+                    Debug.Log("raycast");
+                    if (hit.collider)
+                    {
+                        PrintName(hit.collider.gameObject);
+                        Debug.Log("Did Hit");
+                        _responded = true;
+                        _name = hit.collider.gameObject.name;
+
+                        //if (exp._presentTarget == true)
+                        //{
+                            //Destroy(gameObject);
+                            //gameObject.GetComponent<Renderer>().enabled = false;
+                        //}
+                    
+                    }
                 
-            }
+                } 
+          
+            
         }
     }
 
@@ -47,10 +60,10 @@ public class ResponseDetection : MonoBehaviour
         _responded = false;
     }
 
-    private void SetTrue()
+    /*public bool TargetObserved()
     {
-        _flag = true;
-    }
+        return _targetSeen;
+    }*/
 
     public bool GetResponse()
     {
